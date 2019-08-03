@@ -5,7 +5,7 @@ import img from "./img-saver";
 const read = async (req, res, next) => {
   try {
     let csvpath = path.resolve(
-      "/home/xogaiht/Code/hackathon/api/resources/PortalDaTransparenciaDoEstadoDeMatoGrossoDoSul_20190803004115.csv"
+      "../api/resources/PortalDaTransparenciaDoEstadoDeMatoGrossoDoSul_20190803004115.csv"
     );
     let pattern = "Portal da Transparência do Estado de Mato Grosso do Sul";
     let wanted = "MULTAS E JUROS DE MORA";
