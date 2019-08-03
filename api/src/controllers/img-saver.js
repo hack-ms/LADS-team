@@ -11,10 +11,10 @@ const create = async (type, template, info, data) => {
     let image = await Jimp.read(imagePath);
     let options = {
       text: data,
-      maxWidth: 1500 - 400, //image width - 10px margin left - 10px margin right
+      maxWidth: 1000 - 400, //image width - 10px margin left - 10px margin right
       maxHeight: 200 + 20, //logo height + margin
       placementX: 200,
-      placementY: 700
+      placementY: 450
     };
 
     image.print(
