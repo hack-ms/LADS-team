@@ -1,10 +1,12 @@
 <template>
   <v-app>
-    <div>
+    <v-card>
 
       <v-navigation-drawer
-        expand-on-hover
+        class="purple darken-4"
+        dark
         permanent
+        expand-on-hover
       >
         <v-list
           nav
@@ -31,16 +33,17 @@
         </v-list>
       </v-navigation-drawer>
       
-      <template>
+      <!-- <template> -->
         <v-card
           class="mx-auto"
           max-width="400"
         >
           <v-img
-            class="white--text"
-            src="https://cdn.vuetifyjs.com/images/cards/docks.jpg"
+            src="@/assets/template-despesas.jpg"
           >
-            <v-icon class="align-end fill-height">share</v-icon>
+            <v-layout align-start justify-end>
+                <v-icon color="white">mdi-share</v-icon>
+            </v-layout>
           </v-img>
 
           <v-card-text>
@@ -66,9 +69,9 @@
             </v-btn>
           </v-card-actions>
         </v-card>
-      </template>
+      <!-- </template> -->
 
-    </div>
+    </v-card>
   </v-app>
 </template>
 
