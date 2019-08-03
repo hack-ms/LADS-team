@@ -1,6 +1,8 @@
 const csv = require("csvtojson");
 const path = require("path");
-import img from "./despesas";
+import img from "./img-saver";
+
+// receita de ipva - template01.png
 
 const read = async (req, res, next) => {
   try {
@@ -9,7 +11,7 @@ const read = async (req, res, next) => {
     );
     let pattern = "Portal da Transparência do Estado de Mato Grosso do Sul";
     let wanted = "IPVA";
-    let text = `Seguno o Portal da Transparência no ano de 2018 foi arrecadado R$@ em #`;
+    let text = `Em 2018 foi arrecadado R$@ em # pelo estado de Mato Grosso do Sul`;
 
     text = text.replace("#", wanted);
 
@@ -24,7 +26,9 @@ const read = async (req, res, next) => {
 
     // let a = await img.create();
     // console.log(a);
-    return res.sendFile(path.resolve(await img.create(wanted, text)));
+    return res.sendFile(
+      path.resolve(await img.create("receitas", "template01.png", wanted, text))
+    );
   } catch (error) {
     next(error);
   }

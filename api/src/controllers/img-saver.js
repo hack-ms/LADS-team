@@ -2,10 +2,10 @@ const Jimp = require("jimp");
 const path = require("path");
 const { exec } = require("child_process");
 
-const create = async (info, data) => {
+const create = async (type, template, info, data) => {
   try {
     let imagePath = path.resolve(
-      "/home/xogaiht/Code/hackathon/api/resources/img/despesas.png"
+      `/home/xogaiht/Code/hackathon/api/resources/img/${template}`
     );
     let font = await Jimp.loadFont(Jimp.FONT_SANS_64_WHITE);
     let image = await Jimp.read(imagePath);
@@ -34,13 +34,13 @@ const create = async (info, data) => {
       .quality(100)
       .write(
         path.resolve(
-          `/home/xogaiht/Code/hackathon/api/resources/img/despesas${info}.png`
+          `/home/xogaiht/Code/hackathon/api/resources/img/${type}${info}.png`
         )
       );
 
-    exec(`mv resources/img/despesas${info}.png public/img/despesas${info}.png`);
+    exec(`mv resources/img/${type}${info}.png public/img/${type}${info}.png`);
 
-    return `/home/xogaiht/Code/hackathon/api/public/img/despesas${info}.png`;
+    return `/home/xogaiht/Code/hackathon/api/public/img/${type}${info}.png`;
   } catch (error) {
     error;
   }

@@ -1,6 +1,8 @@
 const csv = require("csvtojson");
 const path = require("path");
-import img from "./despesas";
+import img from "./img-saver";
+
+// receita de icms - template01.png
 
 const read = async (req, res, next) => {
   try {
@@ -24,7 +26,9 @@ const read = async (req, res, next) => {
 
     // let a = await img.create();
     // console.log(a);
-    return res.sendFile(path.resolve(await img.create(wanted, text)));
+    return res.sendFile(
+      path.resolve(await img.create("receitas", "template01.png", wanted, text))
+    );
   } catch (error) {
     next(error);
   }
