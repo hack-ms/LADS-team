@@ -2,9 +2,10 @@
   <v-app>
     <div>
 
+
       <v-app-bar color="purple darken-4" dark>
         <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
-        <v-toolbar-title>Pão de Batata</v-toolbar-title>
+        <v-toolbar-title>THUID</v-toolbar-title>
       </v-app-bar>
       
       <v-navigation-drawer
@@ -79,8 +80,10 @@
                   <v-img
                     :src="img"
                   >
-                    <v-layout align-start justify-end>
-                        <v-icon color="white">mdi-share</v-icon>
+                    <v-layout link align-start justify-end style="padding : 7%" >
+                      <v-btn text icon color="white" :href="img" target="_blank">
+                        <v-icon large>mdi-share</v-icon>
+                      </v-btn>
                     </v-layout>
                   </v-img>
 
@@ -113,7 +116,6 @@
         </template>
       </v-content>
     </div>
-
   </v-app>
 </template>
 
@@ -124,10 +126,11 @@ import find from "@/service/service";
 export default {
   name: 'App',
   data: () => ({
-    src: "https://api-lads.herokuapp.com/",
+    src: "http://localhost:3333/",
     img: "",
     paths: [],
-    drawer: false
+    drawer: false,
+    dialog: true
   }),
   computed: {
     randImg() {
