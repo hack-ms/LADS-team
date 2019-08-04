@@ -2,7 +2,7 @@ import axios from "axios";
 
 const api = () => {
   let api = axios.create({
-    baseURL: "http://172.50.4.210:3333/"
+    baseURL: "https://api-lads.herokuapp.com/"
   });
 
   return api;
