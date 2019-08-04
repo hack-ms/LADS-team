@@ -127,7 +127,7 @@ import find from "@/service/service";
 export default {
   name: 'App',
   data: () => ({
-    src: "http://localhost:3333/",
+    src: "http://api-lads.herokuapp.com/",
     img: "",
     paths: [],
     drawer: false,
