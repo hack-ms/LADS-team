@@ -11,7 +11,7 @@ const read = async (req, res, next) => {
     );
     let pattern = "Portal da Transparência do Estado de Mato Grosso do Sul";
     let wanted = "ICMS";
-    let text = `R$@ arrecadados em # no ano de 2018 seguno o Portal da Transparência`;
+    let text = `R$@ arrecadados em # no ano de 2018 segundo o Portal da Transparência`;
 
     text = text.replace("#", wanted);
 
