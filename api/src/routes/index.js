@@ -1,22 +1,21 @@
 import { Router } from "express";
-const url = require("url");
 
 import ipva from "./ipva-route";
 import icms from "./icms-route";
 import juros from "./juros-route";
-import despesas from "./despesas-route";
+import sejusp from "./sejusp-route";
 
 const router = Router();
 
 router.use("/ipva", ipva);
 router.use("/icms", icms);
 router.use("/juros", juros);
-router.use("/despesas", despesas);
+router.use("/sejusp", sejusp);
 
 router.use("/images", async (req, res, next) => {
   // aqui da pra melhorar
   try {
-    return res.json(["ipva", "icms", "juros", "despesas"]);
+    return res.json(["ipva", "icms", "juros", "sejusp"]);
   } catch (error) {
     next(error);
   }
