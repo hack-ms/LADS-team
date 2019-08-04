@@ -2,16 +2,15 @@
   <v-app>
     <div>
 
-      <v-app-bar color="purple darken-4" fixed clipped-left>
-        <v-icon color="white" @click="drawer = !drawer">mdi-format-list-bulleted</v-icon>
-        <v-toolbar-title class="title white--text ml-2">Pão de Batata</v-toolbar-title>
+      <v-app-bar color="purple darken-4" dark>
+        <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
+        <v-toolbar-title>Pão de Batata</v-toolbar-title>
       </v-app-bar>
-
+      
       <v-navigation-drawer
-        fixed
         v-model="drawer" 
-        absolute
-        clipped
+        fixed
+        temporary
         class="purple darken-4"
         dark
       >
@@ -68,9 +67,9 @@
         </v-list>
       </v-navigation-drawer>
       
-      <!-- <v-content>
+      <v-content>
         <template>
-          <v-container fluid> -->
+          <v-container fluid>
             <v-layout align-center justify-center>
               <v-flex lg8 sm10 xs12>
                 <v-card
@@ -110,9 +109,9 @@
                 </v-card>
               </v-flex>
             </v-layout>
-          <!-- </v-container>
+          </v-container>
         </template>
-      </v-content> -->
+      </v-content>
     </div>
 
   </v-app>
