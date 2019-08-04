@@ -26,3 +26,6 @@ cd api/
 npm i
 npm run dev
 ```
+
+
+A api está em eecução no heroku, acessível em https://api-lads.herokuapp.com/. É possível executar apenas o app localmente.
