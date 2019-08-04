@@ -1,13 +1,14 @@
 <template>
   <v-app>
     <div>
+      
 
 
       <v-app-bar color="purple darken-4" dark>
         <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
         <v-toolbar-title>THUID</v-toolbar-title>
       </v-app-bar>
-      
+      <!-- drawer com links uteis -->
       <v-navigation-drawer
         v-model="drawer" 
         fixed
@@ -69,6 +70,7 @@
       </v-navigation-drawer>
       
       <v-content>
+        <!-- card mostrando a imagem e a descrição selecionados -->
         <template>
           <v-container fluid>
             <v-layout align-center justify-center>
@@ -81,7 +83,7 @@
                     :src="img"
                   >
                     <v-layout link align-start justify-end style="padding : 7%" >
-                      <v-btn text icon color="white" :href="img" target="_blank">
+                      <v-btn text icon color="white" @click="dialog = !dialog">
                         <v-icon large>mdi-share</v-icon>
                       </v-btn>
                     </v-layout>
@@ -116,25 +118,75 @@
           </v-container>
         </template>
       </v-content>
+      <v-dialog v-model="dialog" width="500">
+        <v-card>
+          <v-card-title>
+            Compartilhe!!!
+          </v-card-title>
+          <social-sharing :url="img"
+                      inline-template>
+            <div>
+                <network network="email">
+                    <i class="fa fa-envelope"></i> Email
+                </network>
+                <br>
+                <network network="facebook">
+                  <i class="fa fa-facebook"></i> Facebook
+                </network>
+                <br>
+                <network network="linkedin">
+                  <i class="fa fa-linkedin"></i> LinkedIn
+                </network>
+                <br>
+                <network network="pinterest">
+                  <i class="fa fa-pinterest"></i> Pinterest
+                </network>
+                <br>
+                <network network="reddit">
+                  <i class="fa fa-reddit"></i> Reddit
+                </network>
+                <br>
+                <network network="telegram">
+                  <i class="fa fa-telegram"></i> Telegram
+                </network>
+                <br>
+                <network network="twitter">
+                  <i class="fa fa-twitter"></i> Twitter
+                </network>
+                <br>
+                <network network="whatsapp">
+                  <i class="fa fa-whatsapp"></i> Whatsapp
+                </network>
+            </div>
+          </social-sharing>
+        </v-card>
+      </v-dialog>
     </div>
   </v-app>
 </template>
 
+<script src="/dist/vue-social-sharing.min.js"></script>
 
 <script>
+
+import Vue from "vue";
+var SocialSharing = require('vue-social-sharing');
+
+
+Vue.use(SocialSharing);
 import find from "@/service/service";
 
 export default {
   name: 'App',
   data: () => ({
-    src: "http://api-lads.herokuapp.com/",
+    src: "http://api-lads.herokuapp.com/",//source base da imagem
     img: "",
     paths: [],
     drawer: false,
-    dialog: true
+    dialog: false
   }),
   computed: {
-    randImg() {
+    randImg() {//calcula um numeor aleatório para definir a imagem
       var i = parseInt(Math.random()*this.paths.length);
       //console.log(i);
       return (i);
@@ -142,7 +194,7 @@ export default {
   },
   methods: {
 
-    async getPaths() {
+    async getPaths() {//seta o path da imagem selecionada
       try {
         let response = await find("images");
         //console.log(response.data);
@@ -154,7 +206,7 @@ export default {
     }
   },
   created() {
-    this.getPaths();
+    this.getPaths();//seleciona a imagem na criação da pagina
   }
 };
 </script>
