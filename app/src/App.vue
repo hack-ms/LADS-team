@@ -2,9 +2,10 @@
   <v-app>
     <div>
 
+
       <v-app-bar color="purple darken-4" dark>
         <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
-        <v-toolbar-title>Pão de Batata</v-toolbar-title>
+        <v-toolbar-title>THUID</v-toolbar-title>
       </v-app-bar>
       
       <v-navigation-drawer
@@ -48,14 +49,14 @@
             <v-list-item-icon>
               <v-icon>mdi-chevron-right</v-icon>
             </v-list-item-icon>
-            <v-list-item-title>E-sic</v-list-item-title>
+            <v-list-item-title>e-OUV</v-list-item-title>
           </v-list-item>
 
           <v-list-item link href="http://www.ouvidorias.ms.gov.br/" target="_blank">
             <v-list-item-icon>
               <v-icon>mdi-chevron-right</v-icon>
             </v-list-item-icon>
-            <v-list-item-title>E-ouv</v-list-item-title>
+            <v-list-item-title>e-OUV</v-list-item-title>
           </v-list-item>
 
           <v-list-item link href="https://falabr.cgu.gov.br" target="_blank">
@@ -79,31 +80,34 @@
                   <v-img
                     :src="img"
                   >
-                    <v-layout align-start justify-end>
-                        <v-icon color="white">mdi-share</v-icon>
+                    <v-layout link align-start justify-end style="padding : 7%" >
+                      <v-btn text icon color="white" :href="img" target="_blank">
+                        <v-icon large>mdi-share</v-icon>
+                      </v-btn>
                     </v-layout>
                   </v-img>
 
                   <v-card-text>
-                    <span>Number 10</span><br>
                     <span class="text--primary">
-                      <span>Whitehaven Beach</span><br>
-                      <span>Whitsunday Island, Whitsunday Islands</span>
+                      <span>Ficou com duvida quer perguntar diretamente para o governo ?! o e-sic te possibilita isto. </span><br>
+                      <span>E se você quiser criticar ou elogiar, no e-ouv existe essa possibilidade.</span>
                     </span>
                   </v-card-text>
 
                   <v-card-actions>
                     <v-btn
                       text
-                      color="orange"
+                      color="purple"
+                      link href="http://www.esic.ms.gov.br/" target="_blank"
                     >
-                      Share
+                      e-SIC
                     </v-btn>
                     <v-btn
                       text
-                      color="orange"
+                      color="purple"
+                      link href="http://www.ouvidorias.ms.gov.br/" target="_blank"
                     >
-                      Explore
+                      e-OUV
                     </v-btn>
                   </v-card-actions>
                 </v-card>
@@ -113,7 +117,6 @@
         </template>
       </v-content>
     </div>
-
   </v-app>
 </template>
 
@@ -124,10 +127,11 @@ import find from "@/service/service";
 export default {
   name: 'App',
   data: () => ({
-    src: "https://api-lads.herokuapp.com/",
+    src: "http://localhost:3333/",
     img: "",
     paths: [],
-    drawer: false
+    drawer: false,
+    dialog: true
   }),
   computed: {
     randImg() {
