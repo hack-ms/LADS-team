@@ -20,8 +20,8 @@ const read = async (req, res, next) => {
       } else if (data[i][pattern].startsWith(wanted[1])) {
         // data[i][pattern] = data[i][pattern].split(" ");
         text = text.replace("*", wanted[1]); // replace SECRETARIA...
-        text = text.replace("!", data[i][pattern]["field2"]); // replace R$
-        console.log(text);
+        // text = text.replace("!", data[i][pattern]["field2"]); // replace R$
+        console.log(data[i][pattern]["field2"]);
       }
     }
 
