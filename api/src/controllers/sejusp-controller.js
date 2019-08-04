@@ -5,7 +5,7 @@ import img from "./img-saver";
 const read = async (req, res, next) => {
   try {
     let csvpath = path.resolve(
-      "../api/resources/Despesas_2019-08-03_17_00_43.csv"
+      `${__dirname}/../../resources/Despesas_2019-08-03_17_00_43.csv`
     );
     let pattern = "Portal da Transparência do Estado de Mato Grosso do Sul";
     let wanted = ["Período", "SECRETARIA DE ESTADO DE JUST.SEGUR.PUBLICA"];
