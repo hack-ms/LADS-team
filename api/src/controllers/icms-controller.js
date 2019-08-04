@@ -2,16 +2,16 @@ const csv = require("csvtojson");
 const path = require("path");
 import img from "./img-saver";
 
-// receita de ipva - template01.png
+// receita de icms - template01.png
 
 const read = async (req, res, next) => {
   try {
     let csvpath = path.resolve(
-      "../api/resources/PortalDaTransparenciaDoEstadoDeMatoGrossoDoSul_20190803004115.csv"
+      `${__dirname}/../../resources/PortalDaTransparenciaDoEstadoDeMatoGrossoDoSul_20190803004115.csv`
     );
     let pattern = "Portal da Transparência do Estado de Mato Grosso do Sul";
-    let wanted = "IPVA";
-    let text = `Em 2018 foi arrecadado R$@ em # pelo estado de Mato Grosso do Sul`;
+    let wanted = "ICMS";
+    let text = `R$@ arrecadados em # no ano de 2018 seguno o Portal da Transparência`;
 
     text = text.replace("#", wanted);
 
