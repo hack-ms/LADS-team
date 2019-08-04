@@ -1,6 +1,7 @@
 const Jimp = require("jimp");
 const path = require("path");
-const { exec } = require("child_process");
+// const fs = require("fs");
+// const { exec } = require("child_process");
 
 const create = async (type, template, info, data) => {
   try {
@@ -32,9 +33,15 @@ const create = async (type, template, info, data) => {
       .quality(100)
       .write(path.resolve(`../api/resources/img/${type}${info}.png`));
 
-    exec(`mv resources/img/${type}${info}.png public/img/${type}${info}.png`);
+    // console.log(path.resolve(`../api/public/img/${type}${info}.png`));
+    // fs.copyFileSync(
+    //   path.resolve(`../api/resources/img/${type}${info}.png`),
+    //   path.resolve(`../api/public/img/${type}${info}.png`)
+    // );
 
-    return `../api/public/img/${type}${info}.png`;
+    // exec(`mv resources/img/${type}${info}.png public/img/${type}${info}.png`);
+
+    return path.resolve(`../api/public/img/${type}${info}.png`);
   } catch (error) {
     error;
   }

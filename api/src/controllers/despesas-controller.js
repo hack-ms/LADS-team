@@ -37,9 +37,7 @@ const read = async (req, res, next) => {
     }
 
     return res.sendFile(
-      path.resolve(
-        await img.create("despesas", "template02.png", wanted[1], text)
-      )
+      await img.create("despesas", "template02.png", wanted[1], text)
     );
   } catch (error) {
     next(error);
