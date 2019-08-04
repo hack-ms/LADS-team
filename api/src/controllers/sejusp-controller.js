@@ -20,18 +20,24 @@ const read = async (req, res, next) => {
         wanted[1] = "SEJUSP";
         text = text.replace("*", wanted[1]); // replace SECRETARIA...
 
+        let n =
+          data[i]["field2"].slice(data[i]["field2"].indexOf(";") + 2) +
+          "," +
+          data[i]["field3"].slice(0, data[i]["field3"].indexOf(";") - 1);
+
         text = text.replace(
           "!",
-          data[i]["field2"].slice(data[i]["field2"].indexOf(";") + 2) +
-            "," +
-            data[i]["field3"].slice(0, data[i]["field3"].indexOf(";") - 1)
+          Number(n.replace(",", ".")).toLocaleString("pt-BR")
         ); // replace Liquidado
+
+        n =
+          data[i]["field3"].slice(data[i]["field3"].indexOf(";") + 2) +
+          "," +
+          data[i]["field4"].slice(0, -1);
 
         text = text.replace(
           "@",
-          data[i]["field3"].slice(data[i]["field3"].indexOf(";") + 2) +
-            "," +
-            data[i]["field4"].slice(0, -1)
+          Number(n.replace(",", ".")).toLocaleString("pt-BR")
         ); // replace Pago
       }
     }
